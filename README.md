@@ -103,7 +103,7 @@ GROUP BY 1
 4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**:
 ```sql
 SELECT
-    ROUND(AVG(age), 2) as avg_age
+    ROUND(AVG(age), 2) as average_age
 FROM retail_sales
 WHERE category = 'Beauty'
 ```
@@ -119,7 +119,7 @@ WHERE total_sale > 1000
 SELECT 
     category,
     gender,
-    COUNT(*) as total_trans
+    COUNT(*) as total_transactions
 FROM retail_sales
 GROUP 
     BY 
@@ -139,7 +139,7 @@ FROM
 SELECT 
     EXTRACT(YEAR FROM sale_date) as year,
     EXTRACT(MONTH FROM sale_date) as month,
-    AVG(total_sale) as avg_sale,
+    AVG(total_sale) as average_sale,
     RANK() OVER(PARTITION BY EXTRACT(YEAR FROM sale_date) ORDER BY AVG(total_sale) DESC) as rank
 FROM retail_sales
 GROUP BY 1, 2
@@ -162,7 +162,7 @@ LIMIT 5
 ```sql
 SELECT 
     category,    
-    COUNT(DISTINCT customer_id) as cnt_unique_cs
+    COUNT(DISTINCT customer_id) as count_unique_customer
 FROM retail_sales
 GROUP BY category
 ```
